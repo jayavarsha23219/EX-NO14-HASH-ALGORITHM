@@ -27,9 +27,32 @@ To implement HASH ALGORITHM
 
 
 ## Program:
+```
+#include <stdio.h>
+ #include <string.h>
 
+ unsigned int simple_hash(const char *message) {
+ unsigned int hash = 0;
+ int i;
+ for (i = 0; i < strlen(message); i++) {
+ hash = (hash * 31) + message[i]; 
+ }
+ return hash;
+ }
+ int main() {
+ char message[256];
+ unsigned int hash_value;
+ printf("Enter the message to hash: ");
+ fgets(message, sizeof(message), stdin);
+ message[strcspn(message, "\n")] = '\0'; 
+ hash_value = simple_hash(message);
+ printf("Generated hash value: %u\n", hash_value);
+ return 0;
+ }
+```
 
 ## Output:
+![image](https://github.com/user-attachments/assets/901cc9df-15cc-485c-b627-b6ad14d7591c)
 
 ## Result:
 The program is executed successfully.
